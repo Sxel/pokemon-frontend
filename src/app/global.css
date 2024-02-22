@@ -1,0 +1,126 @@
+/* global.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Estilos CSS para el modal */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para cubrir toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente para el contenedor del modal */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra para resaltar el modal */
+  padding: 20px;
+  max-width: 80%; /* Ancho máximo del modal */
+  position: relative; /* Ajustar la posición del botón de cerrar */
+}
+
+.modal-content {
+  color: black; /* Color del texto dentro del modal */
+}
+
+.close {
+  position: absolute;
+  top: -20px; /* Mover el botón 20px arriba del contenido del modal */
+  right: -20px; /* Mover el botón 20px a la derecha del contenido del modal */
+  cursor: pointer;
+  font-size: 24px;
+  color: #666;
+}
+.pokemon-search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pokemon-search-input {
+  flex: 2; /* Input más grande */
+  padding: 6px; /* Reducir el padding para ajustar el tamaño */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  color: #333; /* Color del texto */
+  background-color: #fff; /* Fondo blanco */
+}
+
+.pokemon-search-select {
+  position: relative; /* Ajustar la posición del ícono */
+  flex: 1; /* Select más pequeño */
+  padding: 6px; /* Reducir el padding para ajustar el tamaño */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  color: #333; /* Color del texto */
+  background-color: #fff; /* Fondo blanco */
+  appearance: none; /* Quitar los estilos nativos del navegador */
+  -webkit-appearance: none; /* Para navegadores basados en WebKit */
+  -moz-appearance: none; /* Para navegadores basados en Gecko */
+}
+
+/* Agregar el ícono de flecha hacia abajo */
+.pokemon-search-select::after {
+  content: '\25BC'; /* Código Unicode para la flecha hacia abajo */
+  position: absolute; /* Posición absoluta relativa al elemento padre */
+  top: 50%; /* Centrar verticalmente */
+  right: 10px; /* Ajustar la posición desde el borde derecho */
+  transform: translateY(-50%); /* Centrar verticalmente */
+  pointer-events: none; /* No interactuar con el elemento */
+}
+
+.pokemon-search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pokemon-search-button:hover {
+  background-color: #0056b3;
+}
+}
