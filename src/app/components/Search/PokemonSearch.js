@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import '../../global.css'; // Importa los estilos globales
+import '../../global.css'; 
         
 const PokemonSearch = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchType, setSearchType] = useState('name'); // Estado para el tipo de búsqueda, por defecto es 'name'
+  const [searchType, setSearchType] = useState('name'); 
 
   const handleSearch = () => {
     onSearch(searchTerm, searchType); // Pasa el término de búsqueda y el tipo al manejador de búsqueda
