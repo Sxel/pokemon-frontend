@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import PokemonDetail from './PokemonDetail'; // Importa el componente PokemonDetail
-import Modal from './Model/Modal'; // Importa el componente Modal
+import Modal from './Modal/PokemonModal'; // Importa el componente Modal
 import '../global.css';
 import PokemonSearch from './Search/PokemonSearch';
 
@@ -32,13 +32,13 @@ const PokemonList = () => {
     getPokemons();
   }, []);
 
-  // Manejador de clic para la tarjeta de Pokémon
+  // Manejador de clic para la tarjeta
   const handlePokemonClick = (pokemon) => {
     setSelectedPokemon(pokemon);
-    setIsModalOpen(true); // Abre el modal al hacer clic en la tarjeta
+    setIsModalOpen(true); 
   };
 
-  // Manejador para cerrar el modal
+  // Manejador para cerrar 
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
@@ -48,9 +48,9 @@ const PokemonList = () => {
     try {
       let endpoint = '';
       if (searchType === 'name') {
-        endpoint = `${API_URL}/search?name=${searchTerm}`;
+        endpoint = `${API_URL}/pokemon/search?name=${searchTerm}`;
       } else if (searchType === 'type') {
-        endpoint = `${API_URL}/search?type=${searchTerm}`;
+        endpoint = `${API_URL}/pokemon/search?type=${searchTerm}`;
       }
       const response = await fetch(endpoint);
       if (!response.ok) {
