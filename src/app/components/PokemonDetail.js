@@ -1,5 +1,3 @@
-// PokemonDetail.js
-
 import { useEffect, useState } from 'react';
 
 const PokemonDetail = ({ pokemon }) => {

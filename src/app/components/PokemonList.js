@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState } from 'react';
 import PokemonDetail from './PokemonDetail'; // Importa el componente PokemonDetail
-import Modal from './Modal'; // Importa el componente Modal
+import Modal from './Model/Modal'; // Importa el componente Modal
 import '../global.css';
 import PokemonSearch from './Search/PokemonSearch';
+
+const API_URL = 'http://localhost:3000'; // Definir la URL base de la API
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -14,7 +16,7 @@ const PokemonList = () => {
 
   const getPokemons = async () => {
     try {
-      const response = await fetch('http://localhost:3000/pokemon');
+      const response = await fetch(`${API_URL}/pokemon`);
       if (!response.ok) {
         throw new Error('Failed to fetch');
       }
@@ -46,9 +48,9 @@ const PokemonList = () => {
     try {
       let endpoint = '';
       if (searchType === 'name') {
-        endpoint = `http://localhost:3000/search?name=${searchTerm}`;
+        endpoint = `${API_URL}/search?name=${searchTerm}`;
       } else if (searchType === 'type') {
-        endpoint = `http://localhost:3000/search?type=${searchTerm}`;
+        endpoint = `${API_URL}/search?type=${searchTerm}`;
       }
       const response = await fetch(endpoint);
       if (!response.ok) {
